@@ -6,12 +6,16 @@ import com.model.Pokemon;
 import java.util.List;
 
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
+
+import org.w3c.dom.Text;
 
 public class MyAdapter extends RecyclerView.Adapter<MyAdapter.CelluleJava> {
     private List<Pokemon> listValues;
@@ -65,20 +69,24 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.CelluleJava> {
 
     // Replace the contents of a view (invoked by the layout manager)
     @Override
-    public void onBindViewHolder(CelluleJava holder, final int position) {
+    public void onBindViewHolder(final CelluleJava holder, final int position) {
         // - get element from your dataset at this position
         // - replace the contents of the view with that element
-        Pokemon currentPokemon = listValues.get(position);
+        final Pokemon currentPokemon = listValues.get(position);
         final String name = currentPokemon.getName();
+        final String url = currentPokemon.getUrl();
         holder.txtHeader.setText(name);
+        holder.txtFooter.setText("Footer: " + url);
+
+        //Event
         holder.txtHeader.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View v) {
-                remove(position);
+                Log.d("Pokemon", "Click at Pokemon "+ name);
             }
         });
 
-        holder.txtFooter.setText("Footer: " + name);
+
     }
 
     // Return the size of your dataset (invoked by the layout manager)
