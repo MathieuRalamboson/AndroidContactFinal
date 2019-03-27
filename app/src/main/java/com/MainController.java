@@ -19,10 +19,14 @@ import retrofit2.converter.gson.GsonConverterFactory;
 public class MainController {
 
     private MainActivity activity;
+    private SecondActivity activity2;
+
+
 
     public MainController(MainActivity mainActivity) {
         this.activity = mainActivity;
     }
+    public MainController(SecondActivity secondActivity) { this.activity2 = secondActivity; }
 
     public void onStart(){
 

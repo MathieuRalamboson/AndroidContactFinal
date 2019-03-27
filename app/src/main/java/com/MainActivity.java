@@ -2,19 +2,14 @@ package com;
 
 import com.github.vincebrees.esiea32.R;
 import com.model.Pokemon;
-import com.model.SectionsStatePagerAdapter;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
-import android.support.v4.view.ViewPager;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
-
-import android.support.v4.view.ViewPager;
-import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
-import android.util.Log;
+import android.view.View;
 
 import java.util.List;
 
@@ -25,23 +20,17 @@ public class MainActivity extends Activity {
 
     private MainController controller;
 
-    private static final String TAG = "MainActivity";
-    private SectionsStatePagerAdapter mSectionsPagerAdapter;
-    private ViewPager mViewPager;
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        Log.d(TAG,"onCreate: Started.");
+
         recyclerView = findViewById(R.id.my_recycler_view);
 
         controller = new MainController(this);
         controller.onStart();
-        
-        //mSectionsPagerAdapter = new SectionsStatePagerAdapter(getSupportFragmentManager());
-        
+
 
         // use this setting to
         // improve performance if you know that changes
@@ -58,4 +47,5 @@ public class MainActivity extends Activity {
         mAdapter = new MyAdapter(input);
         recyclerView.setAdapter(mAdapter);
     }
+
 }
