@@ -36,7 +36,7 @@ public class MainController {
                 .create();
 
         Retrofit retrofit = new Retrofit.Builder()
-                .baseUrl("https://api.coinlore.com/api/")
+                .baseUrl("https://pokeapi.co/api/v2/")
                 .addConverterFactory(GsonConverterFactory.create(gson))
                 .build();
 
@@ -47,7 +47,8 @@ public class MainController {
             @Override
             public void onResponse(Call<RestPokemonResponse> call,
                     Response<RestPokemonResponse> response) {
-                Log.d("ERROR", "Api Response");
+
+                Log.d("Check", "Api Respond");
                 RestPokemonResponse restPokemonResponse = response.body();
                 List<Pokemon> listPokemon = restPokemonResponse.getResults();
                 activity.showList(listPokemon);

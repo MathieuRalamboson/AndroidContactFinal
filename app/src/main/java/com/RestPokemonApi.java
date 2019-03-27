@@ -7,6 +7,6 @@ import retrofit2.http.GET;
 
 public interface RestPokemonApi {
 
-    @GET("exchanges")
+    @GET("pokemon")
     Call<RestPokemonResponse> getListPokemon();
 }
